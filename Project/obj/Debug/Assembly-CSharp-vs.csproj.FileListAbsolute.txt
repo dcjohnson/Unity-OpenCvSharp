@@ -1,0 +1,15 @@
+K:\OpenCV\Temp\bin\Debug\Assembly-CSharp.dll
+K:\OpenCV\Temp\bin\Debug\Assembly-CSharp.pdb
+K:\OpenCV\Temp\bin\Debug\OpenCvSharp.Blob.dll
+K:\OpenCV\Temp\bin\Debug\OpenCvSharp.CPlusPlus.dll
+K:\OpenCV\Temp\bin\Debug\OpenCvSharp.dll
+K:\OpenCV\Temp\bin\Debug\UnityEditor.dll
+K:\OpenCV\Temp\bin\Debug\UnityEngine.dll
+K:\OpenCV\Temp\bin\Debug\UnityEngine.UI.dll
+K:\OpenCV\Temp\bin\Debug\Mono.Cecil.dll
+K:\OpenCV\Temp\bin\Debug\nunit.framework.dll
+K:\OpenCV\Temp\bin\Debug\Unity.DataContract.dll
+K:\OpenCV\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+K:\OpenCV\obj\Debug\Assembly-CSharp.dll
+K:\OpenCV\obj\Debug\Assembly-CSharp.pdb
+K:\OpenCV\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache

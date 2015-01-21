@@ -1,0 +1,25 @@
+Initialize engine version: 4.6.0f2 (b073107612b7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA Quadro 6000 (ID=0x6d8)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: K:\OpenCV\run_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading K:\OpenCV\run_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: K:\OpenCV\run_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading K:\OpenCV\run_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: K:\OpenCV\run_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading K:\OpenCV\run_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: K:\OpenCV\run_Data\Managed\OpenCvSharp.Blob.dll (this message is harmless)
+Loading K:\OpenCV\run_Data\Managed\OpenCvSharp.Blob.dll into Unity Child Domain
+Platform assembly: K:\OpenCV\run_Data\Managed\OpenCvSharp.CPlusPlus.dll (this message is harmless)
+Loading K:\OpenCV\run_Data\Managed\OpenCvSharp.CPlusPlus.dll into Unity Child Domain
+Platform assembly: K:\OpenCV\run_Data\Managed\OpenCvSharp.dll (this message is harmless)
+Loading K:\OpenCV\run_Data\Managed\OpenCvSharp.dll into Unity Child Domain
+- Completed reload, in  0.171 seconds
+desktop: 1920x1200 59Hz; virtual: 1920x1200 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: K:\OpenCV\run_Data\Managed\System.Core.dll (this message is harmless)
