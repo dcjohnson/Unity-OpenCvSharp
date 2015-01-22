@@ -16,7 +16,7 @@ public class WebCam : MonoBehaviour
 
     void Update()
     {
-        var curBuffer = cvVideoCapture.Buffer;
+        var curBuffer = cvVideoCapture.ReadAndGetCurrentBuffer();
 
         var pixArray = OpenCvHandDetection.HandDetection(curBuffer);
 

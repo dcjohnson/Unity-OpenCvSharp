@@ -5,13 +5,12 @@ using System;
 
 public class OpenCvVideoCaptureManager
 {
-    private VideoCapture VideoCaptureObject { get; set; }
+    private VideoCapture VideoCaptureObject;
     private Mat buffer;
     public Mat Buffer
     {
         get
         {
-            GetCurrentFrame();
             return buffer;
         }
         private set
@@ -40,8 +39,14 @@ public class OpenCvVideoCaptureManager
         this.Buffer = new Mat();
     }
 
-    public void GetCurrentFrame()
+    public void ReadCurrentFrame()
     {
-        VideoCaptureObject.Read(buffer);
+        VideoCaptureObject.Read(Buffer);
+    }
+
+    public Mat ReadAndGetCurrentBuffer()
+    {
+        ReadCurrentFrame();
+        return Buffer;
     }
 }
