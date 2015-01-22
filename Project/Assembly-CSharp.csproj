@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{760BA5F1-0B5A-04F5-6333-B8DCDCBFF964}</ProjectGuid>
+	<ProjectGuid>{5B9FF267-005F-A3BF-219E-FEAE2D8C894F}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,21 +46,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\OpenCvController.cs" />
      <Compile Include="Assets\Scripts\OpenCvConversions.cs" />
+     <Compile Include="Assets\Scripts\OpenCvHandDetection.cs" />
      <Compile Include="Assets\Scripts\OpenCvVideoCaptureManager.cs" />
      <Compile Include="Assets\Scripts\WebCam.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="OpenCvSharp.Blob">
- <HintPath>K:/OpenCV/Assets/OpenCvSharp/OpenCvSharp.Blob.dll</HintPath>
+ <HintPath>C:/Users/Dylan/Desktop/Github/Unity-OpenCvSharp/Project/Assets/OpenCvSharp/OpenCvSharp.Blob.dll</HintPath>
  </Reference>
  <Reference Include="OpenCvSharp.CPlusPlus">
- <HintPath>K:/OpenCV/Assets/OpenCvSharp/OpenCvSharp.CPlusPlus.dll</HintPath>
+ <HintPath>C:/Users/Dylan/Desktop/Github/Unity-OpenCvSharp/Project/Assets/OpenCvSharp/OpenCvSharp.CPlusPlus.dll</HintPath>
  </Reference>
  <Reference Include="OpenCvSharp">
- <HintPath>K:/OpenCV/Assets/OpenCvSharp/OpenCvSharp.dll</HintPath>
+ <HintPath>C:/Users/Dylan/Desktop/Github/Unity-OpenCvSharp/Project/Assets/OpenCvSharp/OpenCvSharp.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

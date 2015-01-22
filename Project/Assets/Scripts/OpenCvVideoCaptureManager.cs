@@ -6,7 +6,19 @@ using System;
 public class OpenCvVideoCaptureManager
 {
     private VideoCapture VideoCaptureObject { get; set; }
-    public Mat Buffer { get; private set; }
+    private Mat buffer;
+    public Mat Buffer
+    {
+        get
+        {
+            GetCurrentFrame();
+            return buffer;
+        }
+        private set
+        {
+            buffer = value;
+        }
+    }
     public int Width
     {
         get
@@ -21,7 +33,7 @@ public class OpenCvVideoCaptureManager
             return VideoCaptureObject.FrameHeight;
         }
     }
-    
+
     public OpenCvVideoCaptureManager(int index = 0)
     {
         this.VideoCaptureObject = new VideoCapture(index);
@@ -30,12 +42,6 @@ public class OpenCvVideoCaptureManager
 
     public void GetCurrentFrame()
     {
-        VideoCaptureObject.Read(Buffer);
-    }
-
-    public Color[] GetCurrentFrameAndReturnColorArray()
-    {
-        VideoCaptureObject.Read(Buffer);
-        return OpenCvConversions.ConvertMatToColorArray(Buffer);
+        VideoCaptureObject.Read(buffer);
     }
 }
