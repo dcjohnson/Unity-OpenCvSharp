@@ -24,24 +24,4 @@ public static class OpenCvConversions
         }
         return colorArray;
     }
-
-    public static Mat GetGrayScale(Mat mat)
-    {
-        Cv2.CvtColor(mat, mat, ColorConversion.RgbToGray);
-        return mat;
-    }
-
-    public static Mat BlurMat(Mat mat)
-    {
-        var size = new Size(5, 5);
-        Cv2.GaussianBlur(mat, mat, size, 0);
-        return mat;
-    }
-
-    public static Mat ThreshHoldMat(Mat mat)
-    {
-        //(blur,70,255,cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
-        Cv2.Threshold(mat, mat, 160, 255, ThresholdType.Otsu);
-        return mat;
-    }
 }
