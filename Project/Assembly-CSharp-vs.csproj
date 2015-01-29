@@ -50,17 +50,23 @@
      <Compile Include="Assets\Scripts\OpenCvHandDetection.cs" />
      <Compile Include="Assets\Scripts\OpenCvVideoCaptureManager.cs" />
      <Compile Include="Assets\Scripts\WebCam.cs" />
+     <None Include="Assets\HaarCascade\haarcascade_frontalface_alt2.xml" />
+     <None Include="Assets\HaarCascade\haarcascade_eye_tree_eyeglasses.xml" />
+     <None Include="Assets\HaarCascade\fist.xml" />
+     <None Include="Assets\HaarCascade\aGest.xml" />
+     <None Include="Assets\HaarCascade\palm.xml" />
+     <None Include="Assets\HaarCascade\closed_frontal_palm.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="OpenCvSharp.Blob">
- <HintPath>C:/Users/Dylan/Desktop/Github/Unity-OpenCvSharp/Project/Assets/OpenCvSharp/OpenCvSharp.Blob.dll</HintPath>
+ <HintPath>C:/Users/Dylan/Desktop/Github/Unity-OpenCvSharp/Project/Assets/Plugins/OpenCvSharp/OpenCvSharp.Blob.dll</HintPath>
  </Reference>
  <Reference Include="OpenCvSharp.CPlusPlus">
- <HintPath>C:/Users/Dylan/Desktop/Github/Unity-OpenCvSharp/Project/Assets/OpenCvSharp/OpenCvSharp.CPlusPlus.dll</HintPath>
+ <HintPath>C:/Users/Dylan/Desktop/Github/Unity-OpenCvSharp/Project/Assets/Plugins/OpenCvSharp/OpenCvSharp.CPlusPlus.dll</HintPath>
  </Reference>
  <Reference Include="OpenCvSharp">
- <HintPath>C:/Users/Dylan/Desktop/Github/Unity-OpenCvSharp/Project/Assets/OpenCvSharp/OpenCvSharp.dll</HintPath>
+ <HintPath>C:/Users/Dylan/Desktop/Github/Unity-OpenCvSharp/Project/Assets/Plugins/OpenCvSharp/OpenCvSharp.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

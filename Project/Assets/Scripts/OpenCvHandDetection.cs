@@ -1,53 +1,57 @@
 ﻿using UnityEngine;
+using System;
+using System.Linq;
 using OpenCvSharp;
 using OpenCvSharp.CPlusPlus;
-using System.Linq;
 
-public static class OpenCvHandDetection
+public class OpenCvHandDetection
 {
+    CascadeClassifier handDetector;
+    static const string[] haarCascades = new string[]{"Assets/HaarCascade/fist.xml"};
 
-    //I will get to this later.
-    public static Color[] HandDetection(Mat mat)
+    public OpenCvHandDetection(string haarCascadeClassifierPath = "Assets/HaarCascade/fist.xml")
     {
-        Mat dst = new Mat();
-        mat.CopyTo(dst);
+        this.handDetector = new CascadeClassifier(haarCascadeClassifierPath);
+    }
 
-
-        Cv2.CvtColor(mat, dst, ColorConversion.RgbToGray);
-        Cv2.GaussianBlur(dst, dst, new Size(11, 11), 0);
-        ThreshHoldMat(dst, dst);
-        Mat[] contours;
-        OutputArray contourData = OutputArray.Create(new Mat());
-        dst.FindContours(out contours, contourData, ContourRetrieval.FloodFill, ContourChain.ApproxNone);
-
-
-
-
-
-        int max = 0;
-        for (var index = 0; index < contours.Length; index++)
+    public Color[] HandDetection(Mat mat)
+    {
+        var hands = handDetector.DetectMultiScale(mat);
+        
+        foreach(var hand in hands)
         {
-            if (Cv2.ContourArea(contours[index]) > Cv2.ContourArea(contours[max]))
-            {
-                max = index;
-            }
+            mat.Rectangle(hand,255);
         }
-
-        //mat.DrawContours(mat, contours, -1, 255);
-
-        //var convexContours = from contour in contours
-        //                     where Cv2.IsContourConvex(contour)
-        //                     select contour;
-        //mat.DrawContours(mat, convexContours, -1, 255);
-
-        mat.DrawContours(mat, new[] { contours[max] }, -1, 255);
+        
+        //if (hands.Length != 0)
+        //{
+        //    mat.Rectangle(AverageRectPoints(hands), 255);
+        //}
         return OpenCvConversions.ConvertMatToColorArray(mat);
     }
 
-
-    public static void ThreshHoldMat(Mat src, Mat dst)
+    public OpenCvSharp.CPlusPlus.Rect AverageRectPoints(OpenCvSharp.CPlusPlus.Rect[] rects)
     {
-        //Cv2.Threshold(src, dst, 80, 255, ThresholdType.Otsu);
-        Cv2.Threshold(src, dst, 95, 255, ThresholdType.BinaryInv);
+        int x = 0;
+        int y = 0;
+        int height = 0;
+        int width = 0;
+
+        foreach(var rect in rects)
+        {
+            x += rect.X;
+            y += rect.Y;
+            height += rect.Height;
+            width += rect.Width;
+        }
+
+        x /= rects.Length;
+        y /= rects.Length;
+        height /= rects.Length;
+        width /= rects.Length;
+
+        var averageRect = new OpenCvSharp.CPlusPlus.Rect(new Point(x, y), new Size(width, height));
+
+        return averageRect;
     }
 }

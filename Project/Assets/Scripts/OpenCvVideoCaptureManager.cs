@@ -7,6 +7,7 @@ public class OpenCvVideoCaptureManager
 {
     private VideoCapture VideoCaptureObject;
     private Mat buffer;
+
     public Mat Buffer
     {
         get

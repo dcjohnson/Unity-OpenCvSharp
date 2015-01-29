@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\OpenCvHandDetection.cs">
+    <Files>
+      <File FileName="Assets\Scripts\OpenCvHandDetection.cs" Line="17" Column="1" />
+      <File FileName="Assets\Scripts\OpenCvConversions.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\WebCam.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Dylan\Desktop\Github\Unity-OpenCvSharp\Project\Assets\Scripts\OpenCvVideoCaptureManager.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Dylan\Desktop\Github\Unity-OpenCvSharp\Project\Assets\Scripts\OpenCvHandDetection.cs" line="16" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

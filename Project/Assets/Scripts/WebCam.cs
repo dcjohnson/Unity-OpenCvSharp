@@ -5,6 +5,7 @@ using System;
 
 public class WebCam : MonoBehaviour
 {
+    OpenCvHandDetection cvHandDetection;
     OpenCvVideoCaptureManager cvVideoCapture;
     Texture2D textureToEdit;
 
@@ -12,13 +13,13 @@ public class WebCam : MonoBehaviour
     {
         cvVideoCapture = new OpenCvVideoCaptureManager();
         textureToEdit = new Texture2D(cvVideoCapture.Width, cvVideoCapture.Height);
+        cvHandDetection = new OpenCvHandDetection();
     }
 
     void Update()
     {
         var curBuffer = cvVideoCapture.ReadAndGetCurrentBuffer();
-
-        var pixArray = OpenCvHandDetection.HandDetection(curBuffer);
+        var pixArray = cvHandDetection.HandDetection(curBuffer);
 
         textureToEdit.SetPixels(pixArray);
         textureToEdit.Apply();
