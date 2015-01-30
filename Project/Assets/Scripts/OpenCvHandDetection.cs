@@ -7,9 +7,13 @@ using OpenCvSharp.CPlusPlus;
 public class OpenCvHandDetection
 {
     CascadeClassifier handDetector;
-    static const string[] haarCascades = new string[]{"Assets/HaarCascade/fist.xml"};
+    const string fist = "Assets/HaarCascade/fist.xml";
+    const string aGest = "Assets/HaarCascade/aGest.xml";
+    const string closedFrontalPalm = "Assets/HaarCascade/closedFrontalPalm.xml";
+    const string palm = "Assets/HaarCascade/palm.xml";
 
-    public OpenCvHandDetection(string haarCascadeClassifierPath = "Assets/HaarCascade/fist.xml")
+
+    public OpenCvHandDetection(string haarCascadeClassifierPath = palm)
     {
         this.handDetector = new CascadeClassifier(haarCascadeClassifierPath);
     }
@@ -17,41 +21,8 @@ public class OpenCvHandDetection
     public Color[] HandDetection(Mat mat)
     {
         var hands = handDetector.DetectMultiScale(mat);
-        
-        foreach(var hand in hands)
-        {
-            mat.Rectangle(hand,255);
-        }
-        
-        //if (hands.Length != 0)
-        //{
-        //    mat.Rectangle(AverageRectPoints(hands), 255);
-        //}
+        var biggestHand = hands.OrderByDescending(hand => hand.Height * hand.Width).FirstOrDefault(); // Somewhat rough but I will improve it soon.
+        mat.Rectangle(biggestHand, 255);
         return OpenCvConversions.ConvertMatToColorArray(mat);
-    }
-
-    public OpenCvSharp.CPlusPlus.Rect AverageRectPoints(OpenCvSharp.CPlusPlus.Rect[] rects)
-    {
-        int x = 0;
-        int y = 0;
-        int height = 0;
-        int width = 0;
-
-        foreach(var rect in rects)
-        {
-            x += rect.X;
-            y += rect.Y;
-            height += rect.Height;
-            width += rect.Width;
-        }
-
-        x /= rects.Length;
-        y /= rects.Length;
-        height /= rects.Length;
-        width /= rects.Length;
-
-        var averageRect = new OpenCvSharp.CPlusPlus.Rect(new Point(x, y), new Size(width, height));
-
-        return averageRect;
     }
 }

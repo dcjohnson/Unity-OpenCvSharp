@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using OpenCvSharp;
+﻿using OpenCvSharp;
 using OpenCvSharp.CPlusPlus;
 using System;
 

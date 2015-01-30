@@ -50,12 +50,10 @@
      <Compile Include="Assets\Scripts\OpenCvHandDetection.cs" />
      <Compile Include="Assets\Scripts\OpenCvVideoCaptureManager.cs" />
      <Compile Include="Assets\Scripts\WebCam.cs" />
-     <None Include="Assets\HaarCascade\haarcascade_frontalface_alt2.xml" />
-     <None Include="Assets\HaarCascade\haarcascade_eye_tree_eyeglasses.xml" />
+     <None Include="Assets\HaarCascade\closedFrontalPalm.xml" />
      <None Include="Assets\HaarCascade\fist.xml" />
      <None Include="Assets\HaarCascade\aGest.xml" />
      <None Include="Assets\HaarCascade\palm.xml" />
-     <None Include="Assets\HaarCascade\closed_frontal_palm.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
