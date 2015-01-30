@@ -12,7 +12,6 @@ public class OpenCvHandDetection
     const string closedFrontalPalm = "Assets/HaarCascade/closedFrontalPalm.xml";
     const string palm = "Assets/HaarCascade/palm.xml";
 
-
     public OpenCvHandDetection(string haarCascadeClassifierPath = palm)
     {
         this.handDetector = new CascadeClassifier(haarCascadeClassifierPath);
