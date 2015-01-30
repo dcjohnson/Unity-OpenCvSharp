@@ -12,16 +12,36 @@ public class OpenCvHandDetection
     const string closedFrontalPalm = "Assets/HaarCascade/closedFrontalPalm.xml";
     const string palm = "Assets/HaarCascade/palm.xml";
 
-    public OpenCvHandDetection(string haarCascadeClassifierPath = palm)
+    private bool handPresent;
+    public bool HandPresent
     {
+        get
+        {
+            return HandPresent;
+        }
+        private set
+        {
+            handPresent = value;
+        }
+    }
+
+    public OpenCvHandDetection(string haarCascadeClassifierPath = fist)
+    {
+        this.HandPresent = false;
         this.handDetector = new CascadeClassifier(haarCascadeClassifierPath);
     }
 
-    public Color[] HandDetection(Mat mat)
+    public Color[] HandDetectionMarkImage(Mat mat, int widthDivisor = 9, int heightDivisor = 9)
     {
-        var hands = handDetector.DetectMultiScale(mat);
-        var biggestHand = hands.OrderByDescending(hand => hand.Height * hand.Width).FirstOrDefault(); // Somewhat rough but I will improve it soon.
+        var biggestHand = HandDetectionGetRect(mat, widthDivisor, heightDivisor);
         mat.Rectangle(biggestHand, 255);
         return OpenCvConversions.ConvertMatToColorArray(mat);
+    }
+
+    public OpenCvSharp.CPlusPlus.Rect HandDetectionGetRect(Mat mat, int widthDivisor = 9, int heightDivisor = 9)
+    {
+        var hands = handDetector.DetectMultiScale(mat, minSize: new Size(mat.Width / widthDivisor, mat.Height / heightDivisor));
+        var biggestHand = hands.OrderByDescending(hand => hand.Height * hand.Width).FirstOrDefault();
+        return biggestHand;
     }
 }

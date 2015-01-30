@@ -19,8 +19,7 @@ public class WebCam : MonoBehaviour
     void Update()
     {
         var curBuffer = cvVideoCapture.ReadAndGetCurrentBuffer();
-        var pixArray = cvHandDetection.HandDetection(curBuffer);
-
+        var pixArray = cvHandDetection.HandDetectionMarkImage(curBuffer);
         textureToEdit.SetPixels(pixArray);
         textureToEdit.Apply();
         renderer.material.mainTexture = textureToEdit;
