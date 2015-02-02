@@ -4,24 +4,36 @@ using System.Linq;
 using OpenCvSharp;
 using OpenCvSharp.CPlusPlus;
 
-public class OpenCvHandDetection
+public class OpenCvHandDetection : MonoBehaviour
 {
     CascadeClassifier handDetector;
-    const string fist = "Assets/HaarCascade/fist.xml";
-    const string aGest = "Assets/HaarCascade/aGest.xml";
-    const string closedFrontalPalm = "Assets/HaarCascade/closedFrontalPalm.xml";
-    const string palm = "Assets/HaarCascade/palm.xml";
+    public const string fist = "Assets/HaarCascade/fist.xml";
+    public const string aGest = "Assets/HaarCascade/aGest.xml";
+    public const string closedFrontalPalm = "Assets/HaarCascade/closedFrontalPalm.xml";
+    public const string palm = "Assets/HaarCascade/palm.xml";
 
     private bool handPresent;
     public bool HandPresent
     {
         get
         {
-            return HandPresent;
+            return handPresent;
         }
         private set
         {
             handPresent = value;
+        }
+    }
+    private OpenCvSharp.CPlusPlus.Rect[] detectionRects;
+    public OpenCvSharp.CPlusPlus.Rect[] DetectionRects
+    {
+        get
+        {
+            return detectionRects;
+        }
+        private set
+        {
+            detectionRects = value;
         }
     }
 
@@ -33,15 +45,24 @@ public class OpenCvHandDetection
 
     public Color[] HandDetectionMarkImage(Mat mat, int widthDivisor = 9, int heightDivisor = 9)
     {
-        var biggestHand = HandDetectionGetRect(mat, widthDivisor, heightDivisor);
-        mat.Rectangle(biggestHand, 255);
-        return OpenCvConversions.ConvertMatToColorArray(mat);
+        HandDetection(mat, widthDivisor, heightDivisor);
+        return MarkImageWithRect(mat);
     }
 
-    public OpenCvSharp.CPlusPlus.Rect HandDetectionGetRect(Mat mat, int widthDivisor = 9, int heightDivisor = 9)
+    public void HandDetection(Mat mat, int widthDivisor = 9, int heightDivisor = 9)
     {
-        var hands = handDetector.DetectMultiScale(mat, minSize: new Size(mat.Width / widthDivisor, mat.Height / heightDivisor));
-        var biggestHand = hands.OrderByDescending(hand => hand.Height * hand.Width).FirstOrDefault();
-        return biggestHand;
+        DetectionRects = handDetector.DetectMultiScale(mat, minSize: new Size(mat.Width / widthDivisor, mat.Height / heightDivisor));
+        HandPresent = DetectionRects.FirstOrDefault() == new OpenCvSharp.CPlusPlus.Rect() ? false : true;
+    }
+
+    public Color[] MarkImageWithRect(Mat mat)
+    {
+        if(!HandPresent)
+        {
+            return OpenCvConversions.ConvertMatToColorArray(mat);
+        }
+        var biggestHand = DetectionRects.OrderByDescending(hand => hand.Height * hand.Width).FirstOrDefault();
+        mat.Rectangle(biggestHand, 255);
+        return OpenCvConversions.ConvertMatToColorArray(mat);
     }
 }
